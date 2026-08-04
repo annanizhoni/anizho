@@ -15,7 +15,7 @@ export function Header() {
           href="/"
           className="text-lg font-medium tracking-tight transition-opacity hover:opacity-70"
         >
-          Anna Nizhoni
+          ANIZHO
         </Link>
 
         <nav className="flex items-center gap-8 text-sm">

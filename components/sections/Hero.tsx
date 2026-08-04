@@ -4,11 +4,11 @@ export function Hero() {
       <div className="mx-auto max-w-5xl px-8 text-center">
 
         <p className="mb-6 text-sm uppercase tracking-[0.3em] text-zinc-500">
-          Community Artist · Muralist · Fine Artist
+          Community Muralist · Fine Artist
         </p>
 
         <h1 className="mb-8 text-6xl font-light tracking-tight text-zinc-900 md:text-8xl">
-          Anna Nizhoni
+          Anizho
         </h1>
 
         <p className="mx-auto max-w-2xl text-lg leading-8 text-zinc-600">
