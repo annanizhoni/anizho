@@ -6,9 +6,8 @@ export interface Project {
   subtitle?: string;
 
   category:
-    | "community"
-    | "commercial"
-    | "fine-art";
+  | "community-mural"
+  | "commercial-mural";
 
   year: number;
 

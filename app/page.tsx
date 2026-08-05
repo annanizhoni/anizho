@@ -1,9 +1,9 @@
-import { Hero } from "@/components/sections/Hero";
+import { LandingHero } from "@/components/sections/LandingHero";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
+      <LandingHero />
     </main>
   );
 }

@@ -1,16 +1,19 @@
 import { Section } from "@/components/layout/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ProjectCard } from "@/components/ui/ProjectPreview";
+
+import { projects } from "@/content/projects";
 
 export default function WorkPage() {
   return (
     <Section>
-
-      <SectionHeading
-        eyebrow="Selected Work"
-        title="Projects"
-        description="A collection of community murals, public art, commercial commissions, and fine art."
-      />
-
+      <div className="grid gap-20">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.slug}
+            project={project}
+          />
+        ))}
+      </div>
     </Section>
   );
 }
