@@ -15,9 +15,7 @@ export function LandingHero() {
   className="mx-auto h-auto w-full max-w-sm"
 />
 
-        <p className="mx-auto max-w-2xl text-lg leading-8 text-zinc-600">
-          {site.tagline}
-        </p>
+        
 
       </div>
     </section>
