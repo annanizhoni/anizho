@@ -1,36 +1,40 @@
 
 import Link from "next/link";
-import type { Project } from "@/types";
+import type { ProjectCardData } from "@/types";
 
 interface ProjectCardProps {
-  project: Project;
+  project: ProjectCardData;
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Link href={`/work/${project.slug}`} className="group block">
-      <div className="aspect-[4/3] overflow-hidden bg-zinc-200">
-        {project.heroImage && (
+    <Link href={project.href} className="group block">
+      <div className="aspect-[4/5] overflow-hidden bg-zinc-100">
+        {project.image && (
           <img
-            src={project.heroImage}
+            src={project.image}
             alt={project.title}
-            className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-90"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
         )}
       </div>
 
       <div className="mt-5 space-y-1">
-        <h3 className="text-2xl font-light tracking-tight">
+        <h2 className="text-xl font-light tracking-tight transition-colors duration-200 group-hover:text-taupe-500">
           {project.title}
-        </h3>
+        </h2>
 
-        <p className="text-sm uppercase tracking-[0.18em] text-zinc-500">
-          {project.subtitle}
-        </p>
+        {project.details && (
+          <p className="text-sm text-zinc-500">
+            {project.details}
+          </p>
+        )}
 
-        <p className="text-sm text-zinc-500">
-          {project.location} · {project.year}
-        </p>
+        {(project.location || project.year) && (
+          <p className="text-sm text-zinc-500">
+            {[project.location, project.year].filter(Boolean).join(" · ")}
+          </p>
+        )}
       </div>
     </Link>
   );

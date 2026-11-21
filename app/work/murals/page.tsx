@@ -6,36 +6,41 @@ import { client } from "@/sanity/lib/client";
 import { muralProjectsQuery } from "@/sanity/lib/mural";
 import type { Mural } from "@/types";
 
-export default async function WorkPage() {
+export default async function MuralsPage() {
   const murals = await client.fetch<Mural[]>(muralProjectsQuery);
 
   return (
     <Section>
       <Link
         href="/work"
-        className="mb-10 inline-block text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+        className="group mb-10 inline-flex items-center gap-2 text-sm text-zinc-500 transition-all duration-200 hover:!text-taupe-400"
       >
-        ← Back to Work
+        <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1">
+          ←
+        </span>
+        <span>Back</span>
       </Link>
 
-      <div className="grid gap-20">
+      <div className="mb-16">
+        <h1 className="text-4xl font-light tracking-tight md:text-6xl">
+          Murals
+        </h1>
+        <p className="mt-4 text-zinc-500">
+          Community murals, commercial projects, and public art.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {murals.map((mural) => (
           <ProjectCard
             key={mural._id}
             project={{
-              slug: mural.slug,
               title: mural.title,
-              subtitle: mural.subtitle,
-              category:
-                mural.category === "commercial-mural"
-                  ? "commercial-mural"
-                  : "community-mural",
-              year: mural.year ?? 0,
-              location: mural.location ?? "",
-              featured: mural.featured ?? false,
-              heroImage: mural.heroImage?.asset?.url ?? "",
-              gallery: mural.gallery?.map((image) => image.asset?.url ?? "") ?? [],
-              description: mural.description ?? "",
+              image: mural.heroImage?.asset?.url ?? "",
+              href: `/work/murals/${mural.slug}`,
+              details: mural.subtitle,
+              location: mural.location,
+              year: mural.year,
             }}
           />
         ))}

@@ -26,9 +26,12 @@ export default async function BeadworkPage({ params }: PageProps) {
     <main className="mx-auto max-w-7xl px-6 py-16">
       <Link
         href="/work/beadwork"
-        className="mb-10 inline-block text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+        className="group mb-10 inline-flex items-center gap-2 text-sm text-zinc-500 transition-all duration-200 hover:!text-taupe-400"
       >
-        ← Back to Beadwork
+        <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1">
+          ←
+        </span>
+        <span>Back to Beadwork</span>
       </Link>
 
       <div className="grid gap-12 md:grid-cols-2 md:gap-16">

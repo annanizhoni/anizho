@@ -370,3 +370,101 @@ export const artworkBySlugQuery = defineQuery(`
     availability
   }
 `);
+
+ 
+// ------------------------------------------
+// COMMISSION SERVICES
+// ------------------------------------------
+
+export const commissionServicesQuery = defineQuery(`
+  *[
+    _type == "commissionService" &&
+    published == true
+  ] | order(displayOrder asc, title asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    category,
+    shortDescription,
+    description,
+    coverImage {
+      ...,
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions,
+          lqip
+        }
+      }
+    },
+    pricingItems[] {
+      _key,
+      title,
+      priceType,
+      amount,
+      unit,
+      description
+    },
+    pricingNotes,
+    gallery[] {
+      ...,
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions,
+          lqip
+        }
+      }
+    },
+    displayOrder,
+    published
+  }
+`)
+
+export const commissionServiceBySlugQuery = defineQuery(`
+  *[
+    _type == "commissionService" &&
+    slug.current == $slug &&
+    published == true
+  ][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    category,
+    shortDescription,
+    description,
+    coverImage {
+      ...,
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions,
+          lqip
+        }
+      }
+    },
+    pricingItems[] {
+      _key,
+      title,
+      priceType,
+      amount,
+      unit,
+      description
+    },
+    pricingNotes,
+    gallery[] {
+      ...,
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions,
+          lqip
+        }
+      }
+    }
+  }
+`)

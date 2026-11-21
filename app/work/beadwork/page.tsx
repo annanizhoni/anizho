@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import { ProjectCard } from "@/components/ui/ProjectPreview";
 import { client } from "@/sanity/lib/client";
 import { beadworkQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
@@ -10,6 +11,16 @@ export default async function BeadworkPage() {
 
   return (
     <main className="mx-auto max-w-7xl px-6 py-16">
+      <Link
+        href="/work"
+        className="group mb-10 inline-flex items-center gap-2 text-sm text-zinc-500 transition-all duration-200 hover:!text-taupe-400"
+      >
+        <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1">
+          ←
+        </span>
+        <span>Back</span>
+      </Link>
+
       <div className="mb-16">
         <h1 className="text-4xl font-light tracking-tight md:text-6xl">
           Beadwork
@@ -21,31 +32,18 @@ export default async function BeadworkPage() {
 
       <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {artworks.map((artwork) => (
-          <Link
+          <ProjectCard
             key={artwork._id}
-            href={`/work/beadwork/${artwork.slug}`}
-            className="group block"
-          >
-            {artwork.mainImage?.asset?.url && (
-              <div className="aspect-[4/5] overflow-hidden bg-zinc-100">
-                <img
-                  src={urlFor(artwork.mainImage).width(900).auto("format").url()}
-                  alt={artwork.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                />
-              </div>
-            )}
-
-            <div className="mt-5 space-y-1">
-              <h2 className="text-xl font-light tracking-tight">
-                {artwork.title}
-              </h2>
-              <p className="text-sm text-zinc-500">
-                {artwork.medium}
-                {artwork.year ? ` · ${artwork.year}` : ""}
-              </p>
-            </div>
-          </Link>
+            project={{
+              title: artwork.title,
+              image: artwork.mainImage?.asset?.url
+                ? urlFor(artwork.mainImage).width(900).auto("format").url()
+                : "",
+              href: `/work/beadwork/${artwork.slug}`,
+              details: artwork.medium,
+              year: artwork.year,
+            }}
+          />
         ))}
       </div>
     </main>
