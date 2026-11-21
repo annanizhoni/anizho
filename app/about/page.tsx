@@ -5,8 +5,8 @@ export default function AboutPage() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="About"
-        title="Creating artwork rooted in community, place, and connection."
+        title="About the Artist"
+        description="Creating artwork rooted in community, place, and healing."
       />
 
       <div className="mt-16 grid gap-16 lg:grid-cols-[1fr_2fr]">
@@ -15,9 +15,6 @@ export default function AboutPage() {
 
         {/* About Copy */}
         <div className="max-w-2xl space-y-6 text-lg leading-8 text-zinc-700">
-          <p>
-            Hi, I'm Anizho.
-          </p>
 
           <p>
             I create murals and public artwork that celebrate the people,

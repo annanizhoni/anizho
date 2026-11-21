@@ -6,9 +6,7 @@ export default function PressPage() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="Press"
-        title="Media & Interviews"
-        description="A selection of media coverage and interviews."
+        title="Press"
       />
 
       <div className="mt-16 space-y-8">

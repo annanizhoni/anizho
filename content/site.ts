@@ -3,7 +3,7 @@ export const site = {
 
   tagline: "Muralist",
 
-  footerTagline: "Beauty and community with every brushstroke.",
+  footerTagline: "Beauty and community in every brushstroke and bead.",
 
   email: "hello@anizho.art",
 
