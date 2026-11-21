@@ -9,7 +9,7 @@ export const projects: Project[] = [
     year: 2026,
     location: "Park City, Utah",
     featured: true,
-    heroImage: "https://res.cloudinary.com/kexpiscw/image/upload/v1785902138/itsinourhands.jpg",
+    heroImage: [],
     gallery: [],
     description:
       "A vibrant community mural celebrating dogs, nature, and outdoor recreation.",
