@@ -16,7 +16,7 @@ export default async function CommissionsPage() {
   return (
     <Section>
       <SectionHeading
-        title="Commissions"
+        title="Commission"
         description="Custom artwork created in collaboration with you."
       />
 
